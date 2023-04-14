@@ -1,0 +1,137 @@
+// main: ../main.less
+.regForm {
+  position: relative;
+  width: 360px;
+  height: 210px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  margin: 0 auto;
+  font-family: @openSans;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+}
+.wrapReg {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+.tab {
+  display: none;
+  width: 360px;
+  margin: 0px auto;
+
+  border-radius: 4px;
+}
+.wrapTitleInput {
+  border-radius: 4px;
+  background-color: #808a8d;
+  padding-bottom: 4px;
+}
+.inputTitle {
+  padding: 10px 0 8px;
+  color: #fff;
+}
+.step5 {
+  opacity: 0;
+  overflow: hidden;
+}
+p {
+  margin: 0;
+  font-family: @openSans;
+  font-size: 11px;
+  color: #ffffff80;
+}
+.regFormInput {
+  width: 352px;
+  height: 55px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  font-family: @openSans;
+  font-size: 18px;
+  color: #6e747c;
+  text-align: center;
+}
+.tips,
+.termsOfUse {
+  height: 40px;
+  padding: 20px;
+  font-size: 11px;
+}
+
+.current {
+  display: block;
+}
+.next,
+.prev,
+.button--finish {
+  position: absolute;
+  top: 80px;
+}
+.button--finish {
+  left: 390px;
+  width: 120px;
+  height: 38px;
+  color: #fff;
+  padding: 0 13px 0 17px;
+  .btnColor(@openSans, @greenBtnColor, @lightenBtnGreen);
+}
+
+.prev {
+  left: -70px;
+  width: 38px;
+  height: 38px;
+  border: 2px solid #808a80;
+  border-radius: 2px;
+  background-color: transparent;
+  color: #808a8d;
+  cursor: pointer;
+  &:hover {
+    color: #fff;
+    border-color: #fff;
+  }
+}
+.next {
+  left: 390px;
+  width: 120px;
+  height: 38px;
+  color: #fff;
+  padding: 0 13px 0 17px;
+
+  .btnColor(@openSans, @violetBtnColor, @lightenBtnBlue);
+}
+
+.pageStep {
+  position: absolute;
+  top: 205px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  margin-right: auto;
+}
+.step {
+  height: 5px;
+  width: 5px;
+  margin: 0 2px;
+  color: transparent;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.8;
+}
+
+.step.active {
+  opacity: 1;
+  background-color: #fff;
+}
+
+.error {
+  color: #e22a32;
+}
