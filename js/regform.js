@@ -129,7 +129,49 @@ $(document).ready(function () {
         typeof args.submit === "undefined" ||
         (typeof args.submit === "boolean" && args.submit)
       ) {
-        form.submit(console.log(args.submit));
+        var inputedProfession = $("#regProfession").val();
+        var inputedAge = $("#regAge").val();
+        var inputedAddress = $("#regAddress").val();
+        var inputedEmail = $("#regEmail").val();
+        var inputedPassword = $("#regPassword").val();
+        var jsonToSever = {
+          Profession: inputedProfession,
+          age: inputedAge.toString(),
+          location: inputedAddress,
+          email: inputedEmail,
+          password: inputedPassword,
+        };
+        form.submit(
+          // send post request and get response from server
+          jQuery
+            .post(
+              "http://www.mocky.io/v2/5dfcef48310000ee0ed2c281",
+              JSON.stringify(jsonToSever),
+              function () {
+                alert("Your data has been sent successfully");
+              }
+            )
+            .done(function (data) {
+              console.log(data.errors);
+              if (data.status == "error") {
+                let errorMessages = "";
+                data.errors.forEach((element) => {
+                  errorMessages = errorMessages + " " + element.message;
+                });
+
+                alert(errorMessages);
+              }
+            })
+            .fail(function (error) {
+              console.log(error);
+              alert("error", error);
+            })
+            .always(function () {
+              // clear form
+              form[0].reset();
+              form.navigateTo(0);
+            }, "JSON")
+        );
       }
       return form;
     });

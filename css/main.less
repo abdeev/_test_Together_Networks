@@ -4,10 +4,17 @@
 
 body {
   margin: 0 auto;
+  background-color: rgb(21, 21, 21);
   background-image: url(../img/bg.png);
-  background-position: 50% 50%;
-  background-size: 1960px;
+  background-position: 50% 0;
+  background-size: cover;
   background-repeat: no-repeat;
+  @media screen and (max-width: 410px) {
+    background-position: 25% 0;
+  }
+  @media screen and (min-width: 411px) and (max-width: 865px) {
+    background-position: 35% 0;
+  }
 }
 .container {
   margin: 0 auto;
