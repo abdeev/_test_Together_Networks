@@ -141,37 +141,43 @@ $(document).ready(function () {
           email: inputedEmail,
           password: inputedPassword,
         };
-        form.submit(
-          // send post request and get response from server
-          jQuery
-            .post(
-              "http://www.mocky.io/v2/5dfcef48310000ee0ed2c281",
-              JSON.stringify(jsonToSever),
-              function () {
-                alert("Your data has been sent successfully");
-              }
-            )
-            .done(function (data) {
-              console.log(data.errors);
-              if (data.status == "error") {
-                let errorMessages = "";
-                data.errors.forEach((element) => {
-                  errorMessages = errorMessages + " " + element.message;
-                });
+        if (!inputedPassword) {
+          alert("Password is required");
+          return false;
+        }
+        if (inputedPassword) {
+          form.submit(
+            // send post request and get response from server
+            jQuery
+              .post(
+                "http://www.mocky.io/v2/5dfcef48310000ee0ed2c281",
+                JSON.stringify(jsonToSever),
+                function () {
+                  alert("Your data has been sent successfully");
+                }
+              )
+              .done(function (data) {
+                console.log(data.errors);
+                if (data.status == "error") {
+                  let errorMessages = "";
+                  data.errors.forEach((element) => {
+                    errorMessages = errorMessages + " " + element.message;
+                  });
 
-                alert(errorMessages);
-              }
-            })
-            .fail(function (error) {
-              console.log(error);
-              alert("error", error);
-            })
-            .always(function () {
-              // clear form
-              form[0].reset();
-              form.navigateTo(0);
-            }, "JSON")
-        );
+                  alert(errorMessages);
+                }
+              })
+              .fail(function (error) {
+                console.log(error);
+                alert("error", error);
+              })
+              .always(function () {
+                // clear form
+                form[0].reset();
+                form.navigateTo(0);
+              }, "JSON")
+          );
+        }
       }
       return form;
     });
