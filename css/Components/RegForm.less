@@ -25,9 +25,9 @@
   display: none;
   width: 360px;
   margin: 0px auto;
-
   border-radius: 4px;
 }
+
 .wrapTitleInput {
   border-radius: 4px;
   background-color: #808a8d;
@@ -37,12 +37,8 @@
   padding: 10px 0 8px;
   color: #fff;
 }
-.step5 {
-  opacity: 0;
-  overflow: hidden;
-}
 p {
-  margin: 0;
+  margin: 0 auto;
   font-family: @openSans;
   font-size: 11px;
   color: #ffffff80;
@@ -80,6 +76,7 @@ p {
   height: 38px;
   color: #fff;
   padding: 0 13px 0 17px;
+  text-align: left;
   .btnColor(@openSans, @greenBtnColor, @lightenBtnGreen);
 }
 
@@ -89,10 +86,16 @@ p {
   height: 38px;
   border: 2px solid #808a80;
   border-radius: 2px;
+  .inline-svg-code(~'<svg xmlns="http://www.w3.org/2000/svg" width="10" height="17" viewBox="0 0 10 17" > <path d="M749.58,575.988l-8.593,8.592,1.433,1.432,8.592-8.592Zm0,17.024-8.593-8.592,1.433-1.432,8.592,8.592Z" transform="translate(-741 -576)" fill="#808a8d"/> </svg>');
+  background-position: 11px 8px;
+  background-image: @-inline-svg-url;
+  background-repeat: no-repeat;
   background-color: transparent;
   color: #808a8d;
   cursor: pointer;
   &:hover {
+    .inline-svg-code(~'<svg xmlns="http://www.w3.org/2000/svg" width="10" height="17" viewBox="0 0 10 17" > <path d="M749.58,575.988l-8.593,8.592,1.433,1.432,8.592-8.592Zm0,17.024-8.593-8.592,1.433-1.432,8.592,8.592Z" transform="translate(-741 -576)" fill="#FFF"/> </svg>');
+    background-image: @-inline-svg-url;
     color: #fff;
     border-color: #fff;
   }
@@ -103,10 +106,17 @@ p {
   height: 38px;
   color: #fff;
   padding: 0 13px 0 17px;
-
+  text-align: left;
+  cursor: pointer;
   .btnColor(@openSans, @violetBtnColor, @lightenBtnBlue);
 }
-
+.nextArrowSVG {
+  position: absolute;
+  top: 90px;
+  left: 478px;
+  width: 18px;
+  color: #fff;
+}
 .pageStep {
   position: absolute;
   top: 205px;

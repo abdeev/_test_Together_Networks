@@ -8,7 +8,14 @@
   border-radius: 4px;
   cursor: pointer;
   background-image: linear-gradient(61deg, @bg1, @bg2);
-  &:hover {
+  &:hover,
+  &:focus {
     box-shadow: 1px 1px 17px 0px fade(@bg2, 66);
   }
+}
+
+.inline-svg-code( @code ) {
+  @-svg-code: escape(~'<?xml version="1.0" ?>@{code}');
+  @-inline-svg-code: ~"data:image/svg+xml,@{-svg-code}";
+  @-inline-svg-url: ~"url('@{-inline-svg-code}')";
 }
